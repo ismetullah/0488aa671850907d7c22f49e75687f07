@@ -28,9 +28,8 @@ class StationsAdapter(
 
     var itemWidth: Int? = null
 
-    override fun setItems(_items: List<Station>?) {
+    override fun setItems(_items: List<Station>?) =
         super.setItems(StationsDiff(data, _items ?: arrayListOf()))
-    }
 
     override fun getItemPosition(item: Station): Int {
         data.forEachIndexed { i, answer ->

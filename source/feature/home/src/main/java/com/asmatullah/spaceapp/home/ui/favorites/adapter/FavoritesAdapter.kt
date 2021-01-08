@@ -4,7 +4,6 @@ import android.view.ViewGroup
 import com.asmatullah.spaceapp.common.core.db.models.Station
 import com.asmatullah.spaceapp.common.core.ui.adapter.BaseAdapter
 import com.asmatullah.spaceapp.common.core.ui.adapter.BaseViewHolder
-import com.asmatullah.spaceapp.common.uikit.common.showIf
 import com.asmatullah.spaceapp.home.R
 import com.asmatullah.spaceapp.home.ui.stations.adapter.StationsDiff
 import com.asmatullah.spaceapp.home.util.calculateEUS
@@ -16,13 +15,12 @@ class FavoritesAdapter(
 ) : BaseAdapter<Station>() {
     private val stationEarth = Station("", 0.0, 0.0, 0, 0, 0)
 
-    override fun setItems(_items: List<Station>?) {
+    override fun setItems(_items: List<Station>?) =
         super.setItems(StationsDiff(data, _items ?: arrayListOf()))
-    }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MainViewHolder(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(parent)
 
-    inner class MainViewHolder(parent: ViewGroup) :
+    inner class ViewHolder(parent: ViewGroup) :
         BaseViewHolder<Station>(parent, R.layout.item_favorite) {
 
         override fun onBind(item: Station) = with(itemView) {
@@ -45,6 +43,7 @@ class FavoritesAdapter(
         }
 
         private fun getBackgroundResource(item: Station) = when {
+            item.isCurrent -> R.drawable.bg_station_current
             item.need == 0 -> R.drawable.bg_station_disabled
             else -> R.drawable.bg_station
         }
