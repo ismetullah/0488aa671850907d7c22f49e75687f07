@@ -79,7 +79,7 @@ class StationsFragment :
                 onError(R.string.warning_game_over)
             }
         }
-        viewModel.initialize()
+        viewModel.loadStations()
     }
 
     private fun scrollTo(station: Station?) {

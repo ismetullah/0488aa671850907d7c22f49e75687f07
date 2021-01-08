@@ -1,10 +1,12 @@
 package com.asmatullah.spaceapp.home.ui.stations
 
+import android.os.CountDownTimer
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.asmatullah.spaceapp.common.core.db.models.Shuttle
 import com.asmatullah.spaceapp.common.core.db.models.Station
 import com.asmatullah.spaceapp.common.core.ui.mvvm.BaseViewModel
+import com.asmatullah.spaceapp.common.core.util.Constants.DS_DAMAGE_VALUE
 import com.asmatullah.spaceapp.home.R
 import com.asmatullah.spaceapp.home.util.calculateEUS
 import com.asmatullah.spaceapp.home.util.calculateInitialDS
@@ -24,14 +26,16 @@ class StationsViewModel(private val interactor: StationsContract.Interactor) : B
     override val EUS = MutableLiveData<Double>()
     override val DS = MutableLiveData<Int>()
     override val timeleft = MutableLiveData<Int>()
+    override val damageLeft = MutableLiveData<Int>()
 
     override val gameOver = MutableLiveData(false)
     override var shouldScroll = false
 
     private var stationEarth: Station? = null
     private val defaultStation = Station("", 0.0, 0.0, 0, 0, 0)
+    private lateinit var countDownTimer: CountDownTimer
 
-    fun initialize() {
+    override fun loadStations() {
         handleRequest {
             interactor.deleteStations()
             interactor.loadStations()
@@ -41,7 +45,10 @@ class StationsViewModel(private val interactor: StationsContract.Interactor) : B
     fun updateVariables(shuttle: Shuttle) {
         UGS.postValue(calculateInitialUGS(shuttle))
         EUS.postValue(calculateInitialEUS(shuttle))
-        DS.postValue(calculateInitialDS(shuttle))
+        val ds = calculateInitialDS(shuttle)
+        DS.postValue(ds)
+        initDamageCountDown(ds)
+        damageLeft.postValue(shuttle.damageCapacity)
     }
 
     override fun initCurrentStation() {
@@ -104,13 +111,14 @@ class StationsViewModel(private val interactor: StationsContract.Interactor) : B
         return list
     }
 
-
     private fun checkForGameOver() {
         handleRequest {
             if (isGameOver()) {
                 gameOver.postValue(true)
                 stationEarth?.let { interactor.updateCurrentStation(it) }
                 shouldScroll = true
+                if (countDownTimer != null)
+                    countDownTimer.cancel()
             }
         }
     }
@@ -119,7 +127,7 @@ class StationsViewModel(private val interactor: StationsContract.Interactor) : B
         var gameOver = false
         withContext(Dispatchers.Default) {
             shuttle.value?.let { curShuttle ->
-                if (curShuttle.damageCapacity <= 0) {
+                if (damageLeft.value!! <= 0) {
                     // if damageCapacity is 0 or less, the game is over
                     gameOver = true;
                 } else {
@@ -141,5 +149,21 @@ class StationsViewModel(private val interactor: StationsContract.Interactor) : B
             }
         }
         return gameOver
+    }
+
+    private fun initDamageCountDown(ds: Int) {
+        countDownTimer = object : CountDownTimer(ds.toLong(), 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                timeleft.postValue((millisUntilFinished / 1000).toInt())
+            }
+
+            override fun onFinish() {
+                timeleft.postValue(0)
+                val newDamage = damageLeft.value!! - DS_DAMAGE_VALUE
+                damageLeft.postValue(newDamage)
+                checkForGameOver()
+                this.start()
+            }
+        }.start()
     }
 }

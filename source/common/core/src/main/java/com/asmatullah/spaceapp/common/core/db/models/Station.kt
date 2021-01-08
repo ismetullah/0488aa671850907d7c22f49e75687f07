@@ -1,9 +1,12 @@
 package com.asmatullah.spaceapp.common.core.db.models
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity(tableName = "station")
 data class Station(
     @PrimaryKey
@@ -17,4 +20,4 @@ data class Station(
     var isFav: Boolean = false,
     @ColumnInfo(name = "isCurrent")
     var isCurrent: Boolean = false
-)
+) : Parcelable
