@@ -21,6 +21,7 @@
     <string name="search">Search</string>
     <string name="action_search">Search...</string>
     <string name="format_station_details">%d / %d\nEUS %s</string>
+    <string name="format_favorite_details">%d / %d\nDistance from Earth: EUS %s</string>
     <string name="current_station">Current Station: %s</string>
     <string name="warning_game_over">Game has finished!</string>
     <string name="warning_cannot_travel">Cannot travel there</string>

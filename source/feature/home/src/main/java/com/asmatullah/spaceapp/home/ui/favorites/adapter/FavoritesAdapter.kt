@@ -30,7 +30,7 @@ class FavoritesAdapter(
             val eus = calculateEUS(item, stationEarth)
             tvName.text = item.name
             tvDetails.text = context.getString(
-                R.string.format_station_details,
+                R.string.format_favorite_details,
                 item.stock,
                 item.capacity,
                 formatDouble(eus)
@@ -43,7 +43,6 @@ class FavoritesAdapter(
         }
 
         private fun getBackgroundResource(item: Station) = when {
-            item.isCurrent -> R.drawable.bg_station_current
             item.need == 0 -> R.drawable.bg_station_disabled
             else -> R.drawable.bg_station
         }

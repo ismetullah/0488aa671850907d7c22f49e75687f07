@@ -15,6 +15,9 @@ interface StationsContract {
         val EUS: MutableLiveData<Double>
         val DS: MutableLiveData<Int>
         val timeleft: MutableLiveData<Int>
+        val gameOver: MutableLiveData<Boolean>
+        // Indicates whether the recview should scroll to the currentStation
+        val shouldScroll: Boolean
 
         fun onClickTravel(station: Station)
         fun onClickFav(station: Station)

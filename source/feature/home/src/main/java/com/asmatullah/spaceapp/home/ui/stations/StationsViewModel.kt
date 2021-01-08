@@ -25,13 +25,11 @@ class StationsViewModel(private val interactor: StationsContract.Interactor) : B
     override val DS = MutableLiveData<Int>()
     override val timeleft = MutableLiveData<Int>()
 
-    val gameOver = MutableLiveData(false)
-    // Indicates whether the recview should scroll to the currentStation
-    var shouldScroll = false
+    override val gameOver = MutableLiveData(false)
+    override var shouldScroll = false
 
     private var stationEarth: Station? = null
     private val defaultStation = Station("", 0.0, 0.0, 0, 0, 0)
-
 
     fun initialize() {
         handleRequest {

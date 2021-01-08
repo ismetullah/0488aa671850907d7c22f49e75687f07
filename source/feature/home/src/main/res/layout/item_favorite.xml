@@ -24,8 +24,8 @@
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnFav"
-        android:layout_width="@dimen/button_medium_height"
-        android:layout_height="@dimen/button_medium_height"
+        android:layout_width="@dimen/button_small_height"
+        android:layout_height="@dimen/button_small_height"
         android:background="?android:selectableItemBackground"
         android:tint="@color/highEmphasisOnPrimary"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_small"
-        android:textSize="24sp"
+        android:textSize="21sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/btnFav"
         app:layout_constraintStart_toStartOf="parent"
