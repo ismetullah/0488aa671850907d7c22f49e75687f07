@@ -30,18 +30,38 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent=".93" />
 
+        <com.asmatullah.spaceapp.common.uikit.widget.searchbar.SearchBar
+            android:id="@+id/searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_small"
+            app:layout_constraintTop_toTopOf="parent"
+            app:mt_hint="@string/search"
+            app:mt_maxSuggestionsCount="10"
+            app:mt_placeholder="@string/search"
+            app:mt_roundedSearchBarEnabled="false"
+            app:mt_speechMode="false" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/margin_small"
+            android:background="@color/colorAccent"
+            app:layout_constraintTop_toBottomOf="@id/searchBar" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvUGS"
             style="@style/AppTheme.TextAppearance.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_small"
             android:padding="@dimen/margin_extra_small"
             android:text="@{@string/format_ugs(viewModel.UGS)}"
             app:layout_constraintEnd_toStartOf="@id/tvEUS"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="@id/guideLeft"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider3"
             tools:text="UGS: 5000" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -49,13 +69,12 @@
             style="@style/AppTheme.TextAppearance.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_medium"
             android:padding="@dimen/margin_extra_small"
             android:text="@{@string/format_eus(viewModel.EUS)}"
             app:layout_constraintEnd_toStartOf="@id/tvDS"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toEndOf="@id/tvUGS"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvUGS"
             tools:text="EUS: 500" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -63,13 +82,12 @@
             style="@style/AppTheme.TextAppearance.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_medium"
             android:padding="@dimen/margin_extra_small"
             android:text="@{@string/format_ds(viewModel.DS)}"
             app:layout_constraintEnd_toEndOf="@id/guideRight"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toEndOf="@id/tvEUS"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvUGS"
             tools:text="DS: 50000" />
 
         <View
@@ -150,26 +168,6 @@
             android:background="@color/colorAccent"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
 
-        <com.asmatullah.spaceapp.common.uikit.widget.searchbar.SearchBar
-            android:id="@+id/searchBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_small"
-            app:layout_constraintTop_toBottomOf="@id/divider2"
-            app:mt_hint="@string/search"
-            app:mt_maxSuggestionsCount="10"
-            app:mt_placeholder="@string/search"
-            app:mt_roundedSearchBarEnabled="false"
-            app:mt_speechMode="false" />
-
-        <View
-            android:id="@+id/divider3"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="@dimen/margin_small"
-            android:background="@color/colorAccent"
-            app:layout_constraintTop_toBottomOf="@id/searchBar" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recView"
             android:layout_width="match_parent"
@@ -178,7 +176,7 @@
             android:clipToPadding="false"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/divider3"
+            app:layout_constraintTop_toBottomOf="@id/divider2"
             tools:listitem="@layout/item_station" />
 
         <androidx.appcompat.widget.AppCompatTextView

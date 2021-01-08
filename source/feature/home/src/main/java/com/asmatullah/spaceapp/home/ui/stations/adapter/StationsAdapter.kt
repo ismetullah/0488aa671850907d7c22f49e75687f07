@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import com.asmatullah.spaceapp.common.core.db.models.Station
 import com.asmatullah.spaceapp.common.core.ui.adapter.BaseAdapter
 import com.asmatullah.spaceapp.common.core.ui.adapter.BaseViewHolder
+import com.asmatullah.spaceapp.common.core.ui.util.setThrottleOnClickListener
 import com.asmatullah.spaceapp.common.uikit.common.showIf
 import com.asmatullah.spaceapp.home.R
 import com.asmatullah.spaceapp.home.util.calculateEUS
@@ -25,7 +26,7 @@ class StationsAdapter(
             notifyDataSetChanged()
         }
 
-    var bannerWidth: Int? = null
+    var itemWidth: Int? = null
 
     override fun setItems(_items: List<Station>?) {
         super.setItems(StationsDiff(data, _items ?: arrayListOf()))
@@ -39,14 +40,14 @@ class StationsAdapter(
         return -1
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = MainViewHolder(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(parent)
 
-    inner class MainViewHolder(parent: ViewGroup) :
+    inner class ViewHolder(parent: ViewGroup) :
         BaseViewHolder<Station>(parent, R.layout.item_station) {
 
         override fun onBind(item: Station) = with(itemView) {
             super.onBind(item)
-            bannerWidth?.let { w ->
+            itemWidth?.let { w ->
                 layoutParams.width = w
                 requestLayout()
             }
@@ -63,13 +64,13 @@ class StationsAdapter(
             )
 
             btnFav.setImageResource(if (item.isFav) R.drawable.ic_star_filled else R.drawable.ic_star_empty)
-            btnFav.setOnClickListener {
+            btnFav.setThrottleOnClickListener {
                 onClickFav.invoke(item)
                 btnFav.setImageResource(if (item.isFav) R.drawable.ic_star_empty else R.drawable.ic_star_filled)
             }
 
             btnTravel.showIf(shouldShowTravelBtn(item))
-            btnTravel.setOnClickListener {
+            btnTravel.setThrottleOnClickListener {
                 onClickTravel.invoke(item)
             }
         }

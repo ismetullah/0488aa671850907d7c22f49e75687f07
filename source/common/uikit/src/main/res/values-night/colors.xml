@@ -49,4 +49,5 @@
 
     <!--Station-->
     <color name="bgStationDisabled">@color/grey_900</color>
+    <color name="bgStationCurrent">@color/pale_blue_900</color>
 </resources>

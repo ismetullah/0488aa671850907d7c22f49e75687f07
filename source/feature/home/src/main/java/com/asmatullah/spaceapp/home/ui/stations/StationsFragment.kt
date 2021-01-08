@@ -3,9 +3,12 @@ package com.asmatullah.spaceapp.home.ui.stations
 import androidx.recyclerview.widget.LinearSnapHelper
 import com.asmatullah.spaceapp.common.core.db.models.Station
 import com.asmatullah.spaceapp.common.core.ui.mvvm.BaseMvvmFragment
+import com.asmatullah.spaceapp.common.core.ui.util.SimpleTextWatcher
 import com.asmatullah.spaceapp.common.core.ui.util.observeNonNull
+import com.asmatullah.spaceapp.common.core.util.DelayUtil
 import com.asmatullah.spaceapp.home.R
 import com.asmatullah.spaceapp.home.databinding.FragmentStationsBinding
+import com.asmatullah.spaceapp.home.ui.stations.adapter.SearchAdapter
 import com.asmatullah.spaceapp.home.ui.stations.adapter.StationsAdapter
 import kotlinx.android.synthetic.main.fragment_stations.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -21,20 +24,31 @@ class StationsFragment :
             viewModel::onClickFav
         )
     }
+    private val searchAdapter by lazy { SearchAdapter(layoutInflater, this::onClickSearch) }
 
     override fun configureUI() {
         onActivityBackPressed()
         initRecView()
+        initSearch()
         setupViewModel()
+    }
+
+    private fun initSearch() {
+        searchBar.setCustomSuggestionAdapter(searchAdapter)
+        searchBar.addTextChangeListener(object : SimpleTextWatcher() {
+            override fun onTextChanged(text: CharSequence?, start: Int, before: Int, count: Int) {
+                searchAdapter.filter.filter(text)
+            }
+        })
     }
 
     private fun initRecView() {
         recView.adapter = stationsAdapter
         val snapHelper = LinearSnapHelper()
         snapHelper.attachToRecyclerView(recView)
-        // Set the banner with 4/5 of the whole screen.
         recView.post {
-            stationsAdapter.bannerWidth = (recView.width * 4) / 5
+            // Set the width 4/5 of the whole screen.
+            stationsAdapter.itemWidth = (recView.width * 4) / 5
         }
     }
 
@@ -50,6 +64,7 @@ class StationsFragment :
         }
         viewModel.sortedStations.observeNonNull(this) {
             stationsAdapter.setItems(it)
+            searchAdapter.suggestions = it
             if (viewModel.shouldScroll) {
                 scrollTo(viewModel.currentStation.value)
                 viewModel.shouldScroll = false
@@ -71,7 +86,13 @@ class StationsFragment :
         if (station == null) return
         val pos = stationsAdapter.getItemPosition(station)
         if (pos != -1) {
-            recView.scrollToPosition(pos)
+            recView.smoothScrollToPosition(pos)
         }
+    }
+
+    private fun onClickSearch(station: Station) {
+        searchBar.closeSearch()
+        // Scroll to position after some seconds
+        DelayUtil.postDelayedInUIThread({ scrollTo(station) }, 1_000)
     }
 }
