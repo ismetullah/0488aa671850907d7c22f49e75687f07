@@ -4,9 +4,6 @@ dependencies {
     implementation project(':common-strings')
     implementation kotlinDependencies.stdlib
 
-    implementation coroutinesDependencies.core
-    implementation coroutinesDependencies.android
-
     implementation androidXDependencies.appcompat
     implementation androidXDependencies.constraintLayout
     implementation androidXDependencies.lifecycleRuntimeKtx

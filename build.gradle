@@ -4,7 +4,7 @@ buildscript {
     apply from: "$project.rootDir/scripts/dependencies.gradle"
 
     ext {
-        versionCode = 1334
+        versionCode = 1
         versionName = '1.0.0'
     }
     repositories {
@@ -15,9 +15,6 @@ buildscript {
     dependencies {
         classpath gradlePluginDependencies.build
         classpath gradlePluginDependencies.kotlin
-        classpath gradlePluginDependencies.firebaseCrashlytics
-        classpath gradlePluginDependencies.firebaseAppDistribution
-        classpath gradlePluginDependencies.googleServices
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

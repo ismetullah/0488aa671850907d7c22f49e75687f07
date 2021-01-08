@@ -98,11 +98,6 @@ dependencies {
     implementation androidXDependencies.lifecycleRuntimeKtx
     implementation androidXDependencies.coreKtx
 
-    debugImplementation debugDrawerDependencies.core
-    implementation debugDrawerDependencies.base
-    implementation debugDrawerDependencies.commons
-    implementation debugDrawerDependencies.timber
-
     implementation otherDependencies.timber
     implementation otherDependencies.gson
 
