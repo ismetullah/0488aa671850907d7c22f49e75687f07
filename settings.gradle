@@ -1,0 +1,22 @@
+include ':app'
+rootProject.name = "SpaceApp"
+
+addSubfolderProjects("source/common", "common")
+addSubfolderProjects("source/feature", "feature")
+addSubfolderProjects("source", "")
+
+def addSubfolderProjects(String relativePath, String prefix = "") {
+    def folder = file("$rootProject.projectDir/$relativePath")
+    folder.eachDir { nestedDir ->
+        if (nestedDir.listFiles().any { it.name == 'build.gradle' }) {
+            def projectDir = nestedDir.name
+            def projectName = projectDir
+            if (!prefix.empty) {
+                projectName = "$prefix-$nestedDir.name"
+            }
+
+            include projectName
+            project(":${projectName}").projectDir = nestedDir
+        }
+    }
+}

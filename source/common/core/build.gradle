@@ -1,0 +1,55 @@
+apply from: "$project.rootDir/scripts/common.gradle"
+
+android {
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "ANALYTICS_ENABLED", "false"
+            buildConfigField "String", "BASE_URL", base_url
+        }
+        release {
+            buildConfigField "boolean", "ANALYTICS_ENABLED", "true"
+            buildConfigField "String", "BASE_URL", base_url
+        }
+    }
+}
+
+dependencies {
+    implementation kotlinDependencies.stdlib
+    implementation project(':common-strings')
+    implementation project(':common-uikit')
+
+    implementation coroutinesDependencies.core
+    implementation coroutinesDependencies.rx
+    implementation coroutinesDependencies.android
+
+    implementation androidXDependencies.activity
+    implementation androidXDependencies.activityKtx
+    implementation androidXDependencies.fragment
+    implementation androidXDependencies.fragmentKtx
+    implementation androidXDependencies.preferences
+    implementation androidXDependencies.appcompat
+    implementation androidXDependencies.materialDesign
+    implementation androidXDependencies.constraintLayout
+    implementation androidXDependencies.lifecycleRuntimeKtx
+    implementation androidXDependencies.coreKtx
+
+    implementation koinDependencies.core
+    implementation koinDependencies.viewModel
+    implementation koinDependencies.scope
+
+    implementation okHttpDependencies.core
+    implementation okHttpDependencies.urlConnection
+    implementation okHttpDependencies.loggingInterceptor
+
+    implementation retrofitDependencies.core
+    implementation retrofitDependencies.gson
+    implementation retrofitDependencies.scalars
+
+    implementation otherDependencies.gson
+    implementation otherDependencies.timber
+
+    implementation playServicesDependencies.base
+
+    implementation roomDependencies.ktx
+    kapt roomDependencies.compiler
+}

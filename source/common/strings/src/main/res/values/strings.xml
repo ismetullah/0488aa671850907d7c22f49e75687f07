@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE resources [<!ENTITY appname "SpaceApp">]>
+<resources>
+    <string name="app_name">&appname;</string>
+    <string name="error_network">No Internet connection. Connect to Internet, then try again.</string>
+    <string name="error_common">Something went wrong. Try again later.</string>
+    <string name="refresh">Refresh</string>
+    <string name="score_total_max">Score (total/max):</string>
+    <string name="enter_name">Enter name</string>
+    <string name="strength">Strength</string>
+    <string name="custom_seekbar_title">%s: %d</string>
+    <string name="speed">Speed</string>
+    <string name="capacity">Capacity</string>
+    <string name="formatted_out_of">%d / %d</string>
+    <string name="favorites">Favorites</string>
+    <string name="stations">Stations</string>
+    <string name="format_ugs"><b>UGS:</b> %d</string>
+    <string name="format_eus">EUS: %d</string>
+    <string name="format_ds">DS: %d</string>
+    <string name="format_time_left">%d s</string>
+    <string name="travel">Travel</string>
+    <string name="search">Search</string>
+    <string name="action_search">Search...</string>
+</resources>

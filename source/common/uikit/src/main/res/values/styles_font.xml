@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.TextAppearance" />
+
+    <style name="AppTheme.TextAppearance.Title1">
+        <item name="android:textColor">?colorHighEmphasisOnPrimary</item>
+        <item name="android:fontFamily">@font/mikado_bold</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:letterSpacing">0.006</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.Title2">
+        <item name="android:textColor">?colorHighEmphasisOnPrimary</item>
+        <item name="android:fontFamily">@font/mikado_bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:letterSpacing">0.006</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.Title2.Inverse">
+        <item name="android:textColor">?colorHighEmphasisOnPrimaryInverse</item>
+        <item name="android:fontFamily">@font/mikado_bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:letterSpacing">0.006</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.Header">
+        <item name="android:textColor">?colorHighEmphasisOnPrimary</item>
+        <item name="android:fontFamily">@font/mikado_bold</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:letterSpacing">0.006</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:minHeight">50dp</item>
+        <item name="android:gravity">bottom|start</item>
+        <item name="android:paddingStart">@dimen/margin_extra_large</item>
+        <item name="android:paddingTop">@dimen/margin_extra_small</item>
+        <item name="android:paddingEnd">@dimen/margin_extra_large</item>
+        <item name="android:paddingBottom">@dimen/margin_extra_small</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.Headline">
+        <item name="android:textColor">?colorHighEmphasisOnPrimary</item>
+        <item name="android:fontFamily">@font/mikado_regular</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:letterSpacing">0.0067</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.Body1">
+        <item name="android:textColor">?colorHighEmphasisOnPrimary</item>
+        <item name="android:fontFamily">@font/mikado_regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.0075</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.Body1.Inverse">
+        <item name="android:textColor">?colorHighEmphasisOnPrimaryInverse</item>
+        <item name="android:fontFamily">@font/mikado_regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.0075</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.Body2">
+        <item name="android:textColor">?colorHighEmphasisOnPrimary</item>
+        <item name="android:fontFamily">@font/mikado_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.Body2.Inverse">
+        <item name="android:textColor">?colorHighEmphasisOnPrimaryInverse</item>
+        <item name="android:fontFamily">@font/mikado_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+    <style name="AppTheme.TextAppearance.Body3">
+        <item name="android:textColor">?colorLowEmphasisOnPrimary</item>
+        <item name="android:fontFamily">@font/mikado_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.Body3.Inverse">
+        <item name="android:textColor">?colorLowEmphasisOnPrimaryInverse</item>
+        <item name="android:fontFamily">@font/mikado_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.Caption">
+        <item name="android:textColor">?colorHighEmphasisOnPrimary</item>
+        <item name="android:fontFamily">@font/mikado_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.Footnotes">
+        <item name="android:textColor">?colorLowEmphasisOnPrimary</item>
+        <item name="android:fontFamily">@font/mikado_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+</resources>

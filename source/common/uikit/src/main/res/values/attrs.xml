@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="RoundedImageView">
+        <attr name="cornerRadius" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomButton">
+        <attr name="colorLight" format="color" />
+        <attr name="colorStroke" format="color" />
+        <attr name="colorDark" format="color" />
+        <attr name="drawable" format="reference" />
+        <attr name="drawablePressed" format="reference" />
+        <attr name="bottomHeight" format="integer" />
+        <attr name="colorStrokeWidth" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="NormalToolbar">
+        <attr name="hideNavigationIcon" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomSeekbar">
+        <attr name="title" format="string" />
+        <attr name="min" format="integer" />
+        <attr name="max" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="SimpleRatingBar">
+        <attr name="isIndicator" format="boolean" />
+        <attr name="rating" format="float" />
+        <attr name="ratingCount" format="integer" />
+        <attr name="ratingEmpty" format="reference" />
+        <attr name="ratingHalf" format="reference" />
+        <attr name="ratingFilled" format="reference" />
+        <attr name="ratingSize" format="dimension" />
+        <attr name="ratingMargin" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="SearchBar">
+        //Base
+        <attr name="mt_speechMode" format="boolean" />
+        <attr name="mt_maxSuggestionsCount" format="integer" />
+        <attr name="mt_navIconEnabled" format="boolean" />
+        <attr name="mt_roundedSearchBarEnabled" format="boolean" />
+        //(API 21+ , Will Revert To Default Shape On Lower
+        <attr name="mt_menuDividerEnabled" format="boolean" />
+        <attr name="mt_dividerColor" format="color" />
+        <attr name="mt_searchBarColor" format="color" />
+
+        //Icons
+        <attr name="mt_menuIconDrawable" format="reference" />
+        <attr name="mt_searchIconDrawable" format="reference" />
+        <attr name="mt_speechIconDrawable" format="reference" />
+        <attr name="mt_backIconDrawable" format="reference" />
+        <attr name="mt_clearIconDrawable" format="reference" />
+        <attr name="mt_navIconTint" format="color" />
+        <attr name="mt_menuIconTint" format="color" />
+        <attr name="mt_searchIconTint" format="color" />
+        <attr name="mt_backIconTint" format="color" />
+        <attr name="mt_clearIconTint" format="color" />
+        <attr name="mt_navIconUseTint" format="boolean" />
+        <attr name="mt_menuIconUseTint" format="boolean" />
+        <attr name="mt_searchIconUseTint" format="boolean" />
+        <attr name="mt_backIconUseTint" format="boolean" />
+        <attr name="mt_clearIconUseTint" format="boolean" />
+        <attr name="mt_borderlessRippleEnabled" format="boolean" />
+
+        //Text
+        <attr name="mt_hint" format="string" />
+        <attr name="mt_placeholder" format="string" />
+        <attr name="mt_textColor" format="color" />
+        <attr name="mt_hintColor" format="color" />
+        <attr name="mt_placeholderColor" format="color" />
+        <attr name="mt_textCursorTint" format="color" />
+        <attr name="mt_leftTextSelectorDrawable" format="reference" />
+        <attr name="mt_middleTextSelectorDrawable" format="reference" />
+        <attr name="mt_rightTextSelectorDrawable" format="reference" />
+        <attr name="mt_leftTextSelectorTint" format="color" />
+        <attr name="mt_middleTextSelectorTint" format="color" />
+        <attr name="mt_rightTextSelectorTint" format="color" />
+        <attr name="mt_handlesTintEnabled" format="boolean" />
+        <attr name="mt_highlightedTextColor" format="color" />
+    </declare-styleable>
+
+    <attr name="text" format="string" />
+    <attr name="enabled" format="boolean" />
+
+    <attr name="colorSecondaryDark" format="color|reference" />
+    <attr name="colorHighEmphasisOnSecondary" format="color|reference" />
+    <attr name="colorHighEmphasisOnPrimary" format="color|reference" />
+    <attr name="colorHighEmphasisOnPrimaryInverse" format="color|reference" />
+    <attr name="colorMediumEmphasisOnPrimary" format="color|reference" />
+    <attr name="colorLowEmphasisOnPrimary" format="color|reference" />
+    <attr name="colorLowEmphasisOnPrimaryInverse" format="color|reference" />
+    <attr name="colorErrorOnPrimary" format="color|reference" />
+    <attr name="colorAlertBackground" format="color|reference" />
+    <attr name="colorApply" format="color|reference" />
+
+    <attr name="placeholderDrawable" format="reference" />
+    <attr name="placeholderTint" format="reference" />
+</resources>

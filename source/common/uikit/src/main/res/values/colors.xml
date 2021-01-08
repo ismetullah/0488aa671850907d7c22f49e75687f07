@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0277BD</color>
+    <color name="colorPrimaryDark">#EEEEEE</color>
+    <color name="colorAccent">@color/teal_900</color>
+    <color name="background">@color/white</color>
+
+    <color name="colorAccentGradient">#EA2550</color>
+    <color name="colorAccentGradientDark">#A61736</color>
+
+    <!--Header Title Color-->
+    <color name="highEmphasisOnPrimary">#212121</color>
+    <color name="highEmphasisOnPrimaryInverse">#FFFFFF</color>
+
+    <color name="primary">#FF9D1734</color>
+    <color name="primaryDark">#EBEBEB</color>
+    <color name="ripple">#889D1734</color>
+
+    <color name="mediumEmphasisOnPrimary">#57FFFFFF</color>
+    <color name="lowEmphasisOnPrimary">#A2A2A2</color>
+    <color name="lowEmphasisOnPrimaryInverse">#424242</color>
+    <color name="errorOnPrimary">#FFD1745F</color>
+
+    <color name="secondary">#FF9D1734</color>
+    <color name="secondaryDark">#FF293231</color>
+
+    <color name="highEmphasisOnSecondary">#353535</color>
+    <color name="lowEmphasis">#4CC86E</color>
+
+    <color name="alertBackground">#FFFFFFFF</color>
+    <color name="apply">#FF59B163</color>
+
+    <!--Search Bar-->
+    <color name="searchBarIconColor">@color/highEmphasisOnPrimary</color>
+    //Base
+    <color name="searchBarPrimaryColor">@color/background</color>
+    <color name="searchBarCursorColor">@color/colorAccent</color>
+    <color name="searchBarDividerColor">@color/lowEmphasisOnPrimary</color>
+
+    //Icons
+    <color name="searchBarNavIconTintColor">@color/searchBarIconColor</color>
+    <color name="searchBarMenuIconTintColor">@color/searchBarIconColor</color>
+    <color name="searchBarSearchIconTintColor">@color/searchBarIconColor</color>
+    <color name="searchBarClearIconTintColor">@color/searchBarIconColor</color>
+    <color name="searchBarBackIconTintColor">@color/searchBarIconColor</color>
+
+    //Text
+    <color name="searchBarTextColor">@color/highEmphasisOnPrimary</color>
+    <color name="searchBarHintColor">@color/lowEmphasisOnPrimary</color>
+    <color name="searchBarPlaceholderColor">@color/lowEmphasisOnPrimary</color>
+    <color name="searchBarTextHighlightColor">@color/colorPrimary</color>
+
+    <!--Main Toolbar-->
+    <color name="mainToolbarBackground">#FF59B163</color>
+
+    <!--Point colors-->
+    <color name="zero_point_bg">@color/grey_400</color>
+    <color name="one_point_bg">@color/green_400</color>
+    <color name="two_points_bg">@color/deep_orange_500</color>
+    <color name="three_points_bg">@color/indigo_500</color>
+
+    <color name="white">#FFFFFF</color>
+
+    <color name="text_dark">@color/grey_900</color>
+
+    <!--Custom Button-->
+    <color name="custom_button_inside">@color/background</color>
+    <color name="custom_button_stroke">@color/grey_900</color>
+
+    <!--Bottom Menu Icon-->
+    <color name="bottom_menu_icon_selected">@color/grey_1000</color>
+    <color name="bottom_menu_icon_unselected">@color/grey_600</color>
+
+    <!--Grey-->
+    <color name="grey_50">#FAFAFA</color>
+    <color name="grey_100">#F5F5F5</color>
+    <color name="grey_200">#EEEEEE</color>
+    <color name="grey_300">#E0E0E0</color>
+    <color name="grey_400">#BDBDBD</color>
+    <color name="grey_500">#9E9E9E</color>
+    <color name="grey_600">#757575</color>
+    <color name="grey_700">#616161</color>
+    <color name="grey_800">#424242</color>
+    <color name="grey_900">#212121</color>
+    <color name="grey_1000">#000000</color>
+
+    <!--Pale-->
+    <color name="pale_blue_500">#03A9F4</color>
+    <color name="pale_blue_50">#E1F5FE</color>
+    <color name="pale_blue_100">#B3E5FC</color>
+    <color name="pale_blue_200">#81D4FA</color>
+    <color name="pale_blue_300">#4FC3F7</color>
+    <color name="pale_blue_400">#29B6F6</color>
+    <color name="pale_blue_600">#039BE5</color>
+    <color name="pale_blue_700">#0288D1</color>
+    <color name="pale_blue_800">#0277BD</color>
+    <color name="pale_blue_900">#01579B</color>
+    <color name="pale_blue_a_100">#80D8FF</color>
+    <color name="pale_blue_a_200">#40C4FF</color>
+    <color name="pale_blue_a_400">#00B0FF</color>
+    <color name="pale_blue_a_700">#0091EA</color>
+
+    <!--Teal-->
+    <color name="teal_100">#B2DFDB</color>
+    <color name="teal_500">#009688</color>
+    <color name="teal_900">#004D40</color>
+
+    <!--Indigo-->
+    <color name="indigo_100">#C5CAE9</color>
+    <color name="indigo_500">#3F51B5</color>
+    <color name="indigo_900">#1A237E</color>
+
+    <!--Green-->
+    <color name="green_400">#66BB6A</color>
+    <color name="green_800">#2E7D32</color>
+    <color name="green_900">#1B5E20</color>
+
+    <!--Deep Orange-->
+    <color name="deep_orange_500">#FF5722</color>
+    <color name="deep_orange_900">#BF360C</color>
+</resources>

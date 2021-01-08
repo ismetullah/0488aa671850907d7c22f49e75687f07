@@ -1,0 +1,110 @@
+<resources>
+
+    <style name="AppTheme.v21" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="background">@color/background</item>
+        <item name="android:windowBackground">@color/background</item>
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorSecondaryDark">@color/secondaryDark</item>
+
+        <item name="colorHighEmphasisOnPrimary">@color/highEmphasisOnPrimary</item>
+        <item name="colorHighEmphasisOnPrimaryInverse">@color/highEmphasisOnPrimaryInverse</item>
+        <item name="colorMediumEmphasisOnPrimary">@color/mediumEmphasisOnPrimary</item>
+        <item name="colorLowEmphasisOnPrimary">@color/lowEmphasisOnPrimary</item>
+        <item name="colorLowEmphasisOnPrimaryInverse">@color/lowEmphasisOnPrimaryInverse</item>
+        <item name="colorErrorOnPrimary">@color/errorOnPrimary</item>
+
+        <item name="colorHighEmphasisOnSecondary">@color/highEmphasisOnSecondary</item>
+        <item name="colorControlHighlight">@color/ripple</item>
+
+        <item name="colorApply">@color/apply</item>
+        <item name="colorAlertBackground">@color/alertBackground</item>
+
+        <item name="colorControlActivated">?colorSecondary</item>
+        <item name="colorControlNormal">?colorLowEmphasisOnPrimary</item>
+        <item name="alertDialogTheme">@style/AppTheme.AlertDialog</item>
+
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeBackground">?colorPrimary</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <!-- fix blue text for come Lollipop devices -->
+        <!-- https://stackoverflow.com/questions/45196244/android-textcolor-ignored-in-androidtextappearance-of-the-edittext -->
+        <item name="android:editTextColor">?colorHighEmphasisOnPrimary</item>
+        <item name="android:textColor">?colorHighEmphasisOnPrimary</item>
+        <item name="android:navigationBarColor">@color/colorPrimary</item>
+
+        <item name="android:actionMenuTextColor">?colorHighEmphasisOnPrimary</item>
+    </style>
+
+    <style name="AppTheme" parent="AppTheme.v21" />
+
+    <style name="AppTheme.DebugDrawer">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme.AlertDialog" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="android:windowBackground">@color/alertBackground</item>
+        <item name="colorAccent">@color/secondary</item>
+        <item name="android:textColorPrimary">@color/highEmphasisOnPrimary</item>
+        <item name="buttonBarNegativeButtonStyle">@style/MediumEmphasisColoredText</item>
+        <item name="buttonBarPositiveButtonStyle">@style/SecondaryColoredText</item>
+    </style>
+
+    <!--  Style for dialogs where positive button should has error colored text  -->
+    <style name="AppTheme.AlertDialog.NegativePositive">
+        <item name="buttonBarPositiveButtonStyle">@style/ErrorColoredText</item>
+    </style>
+
+    <style name="ErrorColoredText" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/errorOnPrimary</item>
+    </style>
+
+    <style name="MediumEmphasisColoredText" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/mediumEmphasisOnPrimary</item>
+    </style>
+
+    <style name="HighEmphasisColoredText" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/highEmphasisOnPrimary</item>
+    </style>
+
+    <style name="SecondaryColoredText" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/secondary</item>
+    </style>
+
+    <style name="AppTheme.Toolbar.TextAppearance" parent="AppTheme.TextAppearance.Title2">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="AppTheme.AlertDialog.FullScreen">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+    </style>
+
+    <style name="AppTheme.WarningDialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="CustomButton">
+        <item name="colorDark">@color/custom_button_stroke</item>
+        <item name="colorLight">@color/custom_button_inside</item>
+        <item name="colorStroke">@color/custom_button_stroke</item>
+    </style>
+</resources>

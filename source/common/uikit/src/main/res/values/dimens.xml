@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="actionBarSize">50dp</dimen>
+
+    <dimen name="button_small_height">24dp</dimen>
+    <dimen name="button_medium_height">40dp</dimen>
+    <dimen name="button_large_height">56dp</dimen>
+
+    <dimen name="margin_extraxxx_large">40dp</dimen>
+    <dimen name="margin_extraxx_large">32dp</dimen>
+    <dimen name="margin_extra_large">20dp</dimen>
+    <dimen name="margin_large">16dp</dimen>
+    <dimen name="margin_medium">12dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_extra_small">4dp</dimen>
+
+    <dimen name="rounded_radius">3dp</dimen>
+
+    <dimen name="icon_height_small">24dp</dimen>
+
+    <dimen name="corner_radius_rounded">25dp</dimen>
+    <dimen name="corner_radius_default">0dp</dimen>
+</resources>

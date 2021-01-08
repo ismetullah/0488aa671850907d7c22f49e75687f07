@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#212121</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">@color/grey_200</color>
+    <color name="background">@color/grey_1000</color>
+
+    <color name="colorAccentGradient">#00AF9C</color>
+    <color name="colorAccentGradientDark">#007669</color>
+
+    <!--Header Title Color-->
+    <color name="highEmphasisOnPrimary">#FFFFFF</color>
+    <color name="highEmphasisOnPrimaryInverse">#FAFAFA</color>
+
+    <color name="primary">#FF9D1734</color>
+    <color name="primaryDark">#EBEBEB</color>
+    <color name="ripple">#889D1734</color>
+
+    <color name="mediumEmphasisOnPrimary">#57FFFFFF</color>
+    <color name="lowEmphasisOnPrimary">#A2A2A2</color>
+    <color name="lowEmphasisOnPrimaryInverse">#9E9E9E</color>
+    <color name="errorOnPrimary">#FFD1745F</color>
+
+    <color name="secondary">#FF9D1734</color>
+    <color name="secondaryDark">#FF293231</color>
+
+    <color name="highEmphasisOnSecondary">#C1C1C1</color>
+    <color name="lowEmphasis">#4CC86E</color>
+
+    <color name="alertBackground">#FFFFFFFF</color>
+    <color name="apply">#FF59B163</color>
+
+    <!--Custom Button-->
+    <color name="custom_button_inside">@color/background</color>
+    <color name="custom_button_stroke">@color/grey_200</color>
+
+    <!--Bottom Menu Icon-->
+    <color name="bottom_menu_icon_selected">@color/white</color>
+    <color name="bottom_menu_icon_unselected">@color/grey_500</color>
+
+    <!--Main Toolbar-->
+    <color name="mainToolbarBackground">#FF59B163</color>
+
+    <!--Point colors-->
+    <color name="zero_point_bg">@color/grey_400</color>
+    <color name="one_point_bg">@color/green_400</color>
+    <color name="two_points_bg">@color/deep_orange_500</color>
+    <color name="three_points_bg">@color/indigo_500</color>
+</resources>

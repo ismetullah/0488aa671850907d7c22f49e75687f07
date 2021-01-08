@@ -1,0 +1,110 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: "$project.rootDir/scripts/klint.gradle"
+
+android {
+    compileSdkVersion sdkCompileVersion
+    buildToolsVersion buildToolsAllVersion
+
+    defaultConfig {
+        applicationId "com.asmatullah.spaceapp"
+        minSdkVersion sdkMinVersion
+        targetSdkVersion sdkTargetVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+        ndk {
+            abiFilters("armeabi-v7a", "x86_64", "arm64-v8a", "x86")
+        }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            shrinkResources false
+            minifyEnabled true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            shrinkResources false
+            minifyEnabled false
+            debuggable true
+            applicationIdSuffix debugSuffix
+            versionNameSuffix debugVersionName
+        }
+    }
+
+    // Renaming all apk files
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def filename = "${variant.name}-${variant.versionName}"
+            def abiVersion = "${output.getFilter(com.android.build.OutputFile.ABI)}"
+            if (abiVersion != "null") {
+                filename += "-${abiVersion}"
+            }
+            filename += ".apk"
+            outputFileName = filename
+        }
+    }
+    splits {
+        // Configures multiple APKs based on ABI.
+        abi {
+            // Enables building multiple APKs per ABI.
+            enable true
+
+            // By default all ABIs are included, so use reset() and include to specify that we only
+            // want APKs for x86, armeabi-v7a, and mips.
+            reset()
+
+            // Specifies a list of ABIs that Gradle should create APKs for.
+            include "x86", "x86_64", "armeabi-v7a", "arm64-v8a"
+
+            // Specifies that we want to also generate a universal APK that includes all ABIs.
+            universalApk true
+        }
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':common-uikit')
+    implementation project(':common-strings')
+    implementation project(':common-core')
+
+    implementation project(':feature-login')
+    implementation project(':feature-home')
+
+    implementation androidXDependencies.activity
+    implementation androidXDependencies.activityKtx
+    implementation androidXDependencies.fragment
+    implementation androidXDependencies.fragmentKtx
+    implementation androidXDependencies.preferences
+    implementation androidXDependencies.appcompat
+    implementation androidXDependencies.materialDesign
+    implementation androidXDependencies.constraintLayout
+    implementation androidXDependencies.lifecycleRuntimeKtx
+    implementation androidXDependencies.coreKtx
+
+    debugImplementation debugDrawerDependencies.core
+    implementation debugDrawerDependencies.base
+    implementation debugDrawerDependencies.commons
+    implementation debugDrawerDependencies.timber
+
+    implementation otherDependencies.timber
+    implementation otherDependencies.gson
+
+    implementation koinDependencies.core
+}
