@@ -11,7 +11,7 @@ import org.koin.dsl.module
 
 object FavoritesModule : InjectionModule {
     override fun create() = module {
-        factory { FavoritesRepo() } bind FavoritesContract.Repo::class
+        factory { FavoritesRepo(get()) } bind FavoritesContract.Repo::class
         factory { FavoritesInteractor(get()) } bind FavoritesContract.Interactor::class
         viewModel { FavoritesViewModel(get()) }
     }

@@ -44,8 +44,16 @@ class StationsFragment :
             viewModel.updateVariables(it)
         }
         viewModel.stations.observeNonNull(this) {
+            if (viewModel.currentStation.value == null)
+                viewModel.initCurrentStation()
+            viewModel.sortStations()
+        }
+        viewModel.sortedStations.observeNonNull(this) {
             stationsAdapter.setItems(it)
-            scrollTo(viewModel.currentStation.value)
+            if (viewModel.shouldScroll) {
+                scrollTo(viewModel.currentStation.value)
+                viewModel.shouldScroll = false
+            }
         }
         viewModel.currentStation.observeNonNull(this) {
             stationsAdapter.currentStation = it
@@ -63,7 +71,7 @@ class StationsFragment :
         if (station == null) return
         val pos = stationsAdapter.getItemPosition(station)
         if (pos != -1) {
-            recView.smoothScrollToPosition(pos)
+            recView.scrollToPosition(pos)
         }
     }
 }

@@ -16,27 +16,27 @@ import kotlinx.coroutines.withContext
 class StationsViewModel(private val interactor: StationsContract.Interactor) : BaseViewModel(),
     StationsContract.ViewModel {
 
-    override var stations = MutableLiveData<ArrayList<Station>>(arrayListOf())
-    override var currentStation = MutableLiveData(Station("", 0.0, 0.0, 0, 0, 0))
+    override var sortedStations = MutableLiveData<List<Station>>(arrayListOf())
+    override var stations = interactor.loadStationsLive()
+    override var currentStation = interactor.loadCurrentStation()
     override var shuttle: LiveData<Shuttle> = interactor.loadShuttle()
     override val UGS = MutableLiveData<Int>()
     override val EUS = MutableLiveData<Double>()
     override val DS = MutableLiveData<Int>()
     override val timeleft = MutableLiveData<Int>()
+
     val gameOver = MutableLiveData(false)
+    // Indicates whether the recview should scroll to the currentStation
+    var shouldScroll = false
+
     private var stationEarth: Station? = null
+    private val defaultStation = Station("", 0.0, 0.0, 0, 0, 0)
+
 
     fun initialize() {
         handleRequest {
             interactor.deleteStations()
-            var list = ArrayList(interactor.loadStations())
-            // Set first station as the current station
-            if (list.isNotEmpty()) {
-                currentStation.postValue(list[0])
-                stationEarth = list[0]
-            }
-            list = sortList(list)
-            stations.postValue(list)
+            interactor.loadStations()
         }
     }
 
@@ -46,15 +46,27 @@ class StationsViewModel(private val interactor: StationsContract.Interactor) : B
         DS.postValue(calculateInitialDS(shuttle))
     }
 
+    override fun initCurrentStation() {
+        if (stations.value.isNullOrEmpty()) return
+        handleRequest {
+            stationEarth = stations.value!![0]
+            interactor.updateCurrentStation(stations.value!![0])
+            shouldScroll = true
+        }
+    }
+
     override fun onClickFav(station: Station) {
+        handleRequest {
+            station.isFav = !station.isFav
+            interactor.updateStation(station)
+        }
     }
 
     override fun onClickTravel(station: Station) {
         handleRequest {
-            val eus = calculateEUS(station, currentStation.value!!)
-            if ((UGS.value!! < station.need) ||
-                EUS.value!! < eus
-            ) {
+            val eus = calculateEUS(station, currentStation.value ?: defaultStation)
+            // Check if the user can travel there.
+            if (UGS.value!! < station.need || EUS.value!! < eus) {
                 errorResource.postValue(R.string.warning_cannot_travel)
                 return@handleRequest
             }
@@ -62,13 +74,20 @@ class StationsViewModel(private val interactor: StationsContract.Interactor) : B
             EUS.postValue(EUS.value!! - eus)
             station.stock += station.need
             station.need = 0
-            currentStation.postValue(station)
-            interactor.updateStation(station)
+            interactor.updateCurrentStation(station)
+            shouldScroll = true
             checkForGameOver()
         }
     }
 
-    private suspend fun sortList(list: ArrayList<Station>): ArrayList<Station> {
+    override fun sortStations() {
+        if (stations.value.isNullOrEmpty()) return
+        handleRequest {
+            sortedStations.postValue(internalSortList(ArrayList(stations.value!!)))
+        }
+    }
+
+    private suspend fun internalSortList(list: ArrayList<Station>): ArrayList<Station> {
         withContext(Dispatchers.IO) {
             list.sortWith { lhs, rhs ->
                 if (rhs == null) return@sortWith 1
@@ -79,8 +98,8 @@ class StationsViewModel(private val interactor: StationsContract.Interactor) : B
                 if (lhs.name == currentStation.value?.name)
                     return@sortWith -1
 
-                val distance1: Double = calculateEUS(lhs, currentStation.value!!)
-                val distance2: Double = calculateEUS(rhs, currentStation.value!!)
+                val distance1: Double = calculateEUS(lhs, currentStation.value ?: defaultStation)
+                val distance2: Double = calculateEUS(rhs, currentStation.value ?: defaultStation)
                 return@sortWith distance1.compareTo(distance2)
             }
         }
@@ -92,9 +111,9 @@ class StationsViewModel(private val interactor: StationsContract.Interactor) : B
         handleRequest {
             if (isGameOver()) {
                 gameOver.postValue(true)
-                stationEarth?.let { currentStation.postValue(stationEarth) }
+                stationEarth?.let { interactor.updateCurrentStation(it) }
+                shouldScroll = true
             }
-            stations.postValue(sortList(ArrayList(interactor.loadStations())))
         }
     }
 

@@ -14,5 +14,7 @@ data class Station(
     var need: Int,
     var stock: Int,
     @ColumnInfo(name = "isFav")
-    var isFav: Boolean = false
+    var isFav: Boolean = false,
+    @ColumnInfo(name = "isCurrent")
+    var isCurrent: Boolean = false
 )
