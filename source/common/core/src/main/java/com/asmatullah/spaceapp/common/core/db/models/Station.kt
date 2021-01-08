@@ -1,5 +1,6 @@
 package com.asmatullah.spaceapp.common.core.db.models
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -7,9 +8,11 @@ import androidx.room.PrimaryKey
 data class Station(
     @PrimaryKey
     val name: String,
-    val coordinateX: Double,
-    val coordinateY: Double,
-    val capacity: Int,
-    val need: Int,
-    val stock: Int
+    var coordinateX: Double,
+    var coordinateY: Double,
+    var capacity: Int,
+    var need: Int,
+    var stock: Int,
+    @ColumnInfo(name = "isFav")
+    var isFav: Boolean = false
 )

@@ -1,6 +1,5 @@
 package com.asmatullah.spaceapp.home.ui.stations.data
 
-import androidx.lifecycle.LiveData
 import com.asmatullah.spaceapp.common.core.db.local.dao.ShuttleDAO
 import com.asmatullah.spaceapp.common.core.db.local.dao.StationDAO
 import com.asmatullah.spaceapp.common.core.db.models.Station
@@ -12,11 +11,16 @@ class StationsRepo(
     private val stationDAO: StationDAO,
     private val network: NetworkService
 ) : StationsContract.Repo {
-    override suspend fun loadStationsFromServer(): List<Station> = network.getStations()
 
-    override suspend fun loadStationsFromDatabase(): LiveData<List<Station>> {
-        TODO("Not yet implemented")
-    }
+    override suspend fun deleteStations() = stationDAO.clear()
+
+    override suspend fun loadStationsFromServer(): ArrayList<Station> = network.getStations()
+
+    override suspend fun loadStationsFromDatabase() = stationDAO.getStations()
+
+    override suspend fun updateStations(list: ArrayList<Station>) = stationDAO.update(list)
+
+    override suspend fun updateStation(station: Station) = stationDAO.insert(station)
 
     override fun loadShuttle() = shuttleDao.getShuttle()
 }

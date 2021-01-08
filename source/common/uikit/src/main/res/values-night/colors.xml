@@ -46,4 +46,7 @@
     <color name="one_point_bg">@color/green_400</color>
     <color name="two_points_bg">@color/deep_orange_500</color>
     <color name="three_points_bg">@color/indigo_500</color>
+
+    <!--Station-->
+    <color name="bgStationDisabled">@color/grey_900</color>
 </resources>

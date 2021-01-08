@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.asmatullah.spaceapp.home.ui.stations.StationsViewModel" />
@@ -148,12 +150,11 @@
             android:background="@color/colorAccent"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
 
-
         <com.asmatullah.spaceapp.common.uikit.widget.searchbar.SearchBar
             android:id="@+id/searchBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="6dp"
+            android:layout_margin="@dimen/margin_small"
             app:layout_constraintTop_toBottomOf="@id/divider2"
             app:mt_hint="@string/search"
             app:mt_maxSuggestionsCount="10"
@@ -161,5 +162,50 @@
             app:mt_roundedSearchBarEnabled="false"
             app:mt_speechMode="false" />
 
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/margin_small"
+            android:background="@color/colorAccent"
+            app:layout_constraintTop_toBottomOf="@id/searchBar" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/divider3"
+            tools:listitem="@layout/item_station" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCurrentStation"
+            style="@style/AppTheme.TextAppearance.Title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_large"
+            android:text="@{@string/current_station(viewModel.currentStation.name)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recView"
+            tools:text="@string/current_station" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvGameOver"
+            style="@style/AppTheme.TextAppearance.Title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_large"
+            android:background="@drawable/bg_menu"
+            android:gravity="center"
+            android:padding="@dimen/margin_small"
+            android:text="@string/warning_game_over"
+            android:visibility="@{viewModel.gameOver ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCurrentStation" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -71,6 +71,10 @@
     <color name="bottom_menu_icon_selected">@color/grey_1000</color>
     <color name="bottom_menu_icon_unselected">@color/grey_600</color>
 
+    <!--Station-->
+    <color name="bgStationDisabled">@color/grey_400</color>
+    <color name="bgStationCurrent">@color/pale_blue_100</color>
+
     <!--Grey-->
     <color name="grey_50">#FAFAFA</color>
     <color name="grey_100">#F5F5F5</color>

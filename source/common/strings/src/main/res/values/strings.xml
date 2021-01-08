@@ -14,10 +14,14 @@
     <string name="favorites">Favorites</string>
     <string name="stations">Stations</string>
     <string name="format_ugs"><b>UGS:</b> %d</string>
-    <string name="format_eus">EUS: %d</string>
+    <string name="format_eus">EUS: %.1f</string>
     <string name="format_ds">DS: %d</string>
     <string name="format_time_left">%d s</string>
     <string name="travel">Travel</string>
     <string name="search">Search</string>
     <string name="action_search">Search...</string>
+    <string name="format_station_details">%d / %d\nEUS %s</string>
+    <string name="current_station">Current Station: %s</string>
+    <string name="warning_game_over">Game has finished!</string>
+    <string name="warning_cannot_travel">Cannot travel there</string>
 </resources>
