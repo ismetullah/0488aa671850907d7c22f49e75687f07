@@ -35,19 +35,16 @@ interface StationsContract {
         suspend fun updateStations(list: ArrayList<Station>)
         suspend fun updateStation(station: Station)
         fun loadCurrentStation(): LiveData<Station>
-        suspend fun loadCurrentStationL(): Station?
         suspend fun updateCurrentStation(station: Station)
         fun loadShuttle(): LiveData<Shuttle>
     }
 
     interface Interactor {
         suspend fun deleteStations()
-        suspend fun loadStationsFromServer(): ArrayList<Station>
         suspend fun loadStations(): List<Station>
         fun loadStationsLive(): LiveData<List<Station>>
         suspend fun updateStation(station: Station)
         fun loadCurrentStation(): LiveData<Station>
-        suspend fun loadCurrentStationL(): Station?
         suspend fun updateCurrentStation(station: Station)
         fun loadShuttle(): LiveData<Shuttle>
     }

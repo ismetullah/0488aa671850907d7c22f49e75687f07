@@ -26,8 +26,6 @@ class StationsRepo(
 
     override fun loadCurrentStation() = stationDAO.getCurrentStationLive()
 
-    override suspend fun loadCurrentStationL() = stationDAO.getCurrentStation()
-
     override suspend fun updateCurrentStation(station: Station) = stationDAO.updateCurrentStation(station)
 
     override fun loadShuttle() = shuttleDao.getShuttle()
